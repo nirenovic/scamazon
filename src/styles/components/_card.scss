@@ -1,0 +1,71 @@
+.card
+{
+    &:hover
+    {
+        .card-image { transform: scale(1.1); }
+        .card-text-wrapper::before { top: 0px; }
+        .card-text 
+        { 
+            padding-left: 8px !important; 
+            color: $white; 
+        }
+    }
+
+    .card-image-wrapper
+    {
+        overflow: hidden;
+
+        .card-image
+        {
+            height: 320px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all 0.4s ease;
+            transform: scale(1);
+        }
+    }
+
+    .card-text-wrapper
+    {
+        position: relative;
+        overflow: hidden;
+        
+        &::before
+        {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: -100%;
+            background: $black;
+            transition: all 0.4s ease;
+        }
+
+        .card-text 
+        {
+            position: relative;
+            z-index: 2;
+            padding: 8px;
+            padding-left: 0px;
+            transition: all 0.16s ease-out;
+
+            span 
+            {
+                display: block;
+
+                &.card-title
+                {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                &.card-price
+                {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
