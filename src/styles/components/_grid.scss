@@ -2,8 +2,9 @@
 {
     max-width: 1200px;
     margin: auto;
+    padding: 0px 20px;
     display: grid;
     grid-column-gap: 15px;
     grid-row-gap: 15px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
