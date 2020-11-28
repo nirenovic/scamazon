@@ -1,21 +1,22 @@
-.card
+.product
 {
     &:hover
     {
-        .card-image { transform: scale(1.1); }
-        .card-text-wrapper::before { top: 0px; }
-        .card-text 
+        .product-image { transform: scale(1.1); }
+        .product-text-wrapper::before { top: 0px; }
+        .product-text 
         { 
             padding-left: 8px !important; 
             color: $white; 
         }
+        .rating {color: $white;}
     }
 
-    .card-image-wrapper
+    .product-image-wrapper
     {
         overflow: hidden;
 
-        .card-image
+        .product-image
         {
             height: 320px;
             background-position: center;
@@ -26,7 +27,7 @@
         }
     }
 
-    .card-text-wrapper
+    .product-text-wrapper
     {
         position: relative;
         overflow: hidden;
@@ -43,7 +44,7 @@
             transition: all 0.4s ease;
         }
 
-        .card-text 
+        .product-text 
         {
             position: relative;
             z-index: 2;
@@ -51,19 +52,30 @@
             padding-left: 0px;
             transition: all 0.16s ease-out;
 
-            span 
+            >span 
             {
                 display: block;
 
-                &.card-title
+                &.product-title
                 {
                     font-size: 20px;
                     font-weight: 600;
                 }
 
-                &.card-price
+                &.product-price
                 {
                     font-size: 16px;
+                }
+            }
+            
+            .rating
+            {
+                position: relative;
+                z-index: 1;
+
+                i, svg
+                {
+                    color: $gold;
                 }
             }
         }

@@ -3,6 +3,12 @@
 @import "styles/globals/color";
 @import "styles/globals/base";
 // Components
-@import "styles/components/grid";
-@import "styles/components/card";
+@import "styles/components/product-grid";
+@import "styles/components/product";
 @import "styles/components/header";
+@import "styles/components/content-block";
+@import "styles/components/status";
+@import "styles/components/button";
+@import "styles/components/alert";
+// pages
+@import "styles/pages/product-page";
