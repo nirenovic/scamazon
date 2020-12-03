@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { listProducts } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -23,9 +24,9 @@ export default function HomeScreen() {
                         {
                             products.map(product => (
                                 <div key={product._id} className="product">
-                                    <a href={`/product/${product._id}`}>
+                                    <Link to={`/product/${product._id}`}>
                                         <Product key={product._id} product={product}></Product>
-                                    </a>
+                                    </Link>
                                 </div>
                             ))
                         }

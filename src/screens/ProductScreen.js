@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
@@ -8,12 +8,17 @@ import Product from '../components/Product';
 export default function ProductScreen(props) {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
+    const [qty, setQty] = useState(1);
     const productDetails = useSelector( state => state.productDetails);
     const {loading, error, product} = productDetails;
 
     useEffect(() => {
         dispatch(detailsProduct(productId));
     }, [dispatch, productId]);
+
+    const addToCartHandler = () => {
+        props.history.push(`/cart/${productId}?qty=${qty}`);
+    };
 
     return (
         <div>
@@ -33,9 +38,18 @@ export default function ProductScreen(props) {
                             {product.count > 0 ? (
                                 <div>
                                     <span className="success">{product.count} currently in stock.</span>
-                                    <button>Add to Cart</button>
+                                    <label htmlFor="product-qty">Qty: </label>
+                                    <input 
+                                        type="number" 
+                                        id="product-qty" 
+                                        name="product-qty" 
+                                        min="1" max={product.count}  
+                                        defaultValue="1"
+                                        onChange={e => setQty(e.target.value)}
+                                    />
+                                    <button class="default" onClick={addToCartHandler}>Add to Cart</button>
                                 </div>
-                            ) : (
+                            ) : (  
                                 <span className="error">Product currently unavailable.</span>
                             )}
                         </div>
